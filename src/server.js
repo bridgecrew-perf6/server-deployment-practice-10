@@ -29,7 +29,7 @@ app.get('/test', stamper, (req, res) => {
     });
 });
 
-app.get('/baderror', (req, res) => {
+app.get('/bad', (req, res) => {
     let num = 20;
     let result = num.forEach((y) => {
         console.log(y);
