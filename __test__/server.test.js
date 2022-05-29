@@ -1,8 +1,9 @@
 'use strict';
 
-const server=require('../src/server');
+const server= require('../src/server');
 const supertest = require('supertest');
 const request = supertest(server.app);
+
 
 describe('API Server', () => {
     test('getting data from home route / >>>  home route is working', async () => {
@@ -11,7 +12,7 @@ describe('API Server', () => {
         expect(response.text).toEqual('Welcome to advance course');
     });
 
-
+    
     test('getting data from /data route', async () => {
         const response = await request.get('/data');
         expect(response.status).toEqual(200);
@@ -26,7 +27,7 @@ describe('API Server', () => {
 
     });
     it('handle server internal errors', async () => {
-        const response = await request.get('/baderror');
+        const response = await request.get('/bad');
         expect(response.status).toEqual(500);
     })
 })
